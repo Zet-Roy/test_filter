@@ -41,7 +41,7 @@ class InputsFilter extends React.Component {
                 <div className="inputs-filter-title">
                     <span>Имя</span>
                     <span>Дата</span>
-                    <span>Страна</span>
+                    <span>Город</span>
                 </div>
                 <div className="inputs-filter-container">
                     <Input onChange={(event) => { this.onChangeName(event) }} />

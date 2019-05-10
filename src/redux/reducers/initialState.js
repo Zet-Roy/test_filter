@@ -3,6 +3,7 @@ export default {
         data: []
     },
     findData: {
-        data: []
+        data: [],
+        textInputFindEmpty: true
     }
 }

@@ -2,16 +2,27 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 class ListData extends React.Component {
-    render() {
 
-        const listFindData = this.props.findData.map((item) =>
+    rowData(item) {
+        return (
             <tr key={item.id}>
                 <td>{item.name}</td>
                 <td>{item.birthday}</td>
                 <td>{item.city}</td>
             </tr>
-        );
+        )
+    }
 
+    render() {
+
+        let listFindData
+        
+        if(this.props.textInputFindEmpty) {
+            listFindData = this.props.listData.map(this.rowData)
+        } else {
+            listFindData = this.props.findData.map(this.rowData)
+        }
+        
         return (
             <div className="table-wrap">
                 <table border="1">
@@ -31,7 +42,9 @@ class ListData extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        findData: state.findData.data
+        findData: state.findData.data,
+        listData: state.listData.data,
+        textInputFindEmpty: state.findData.textInputFindEmpty
     }
 }
 
